@@ -22,15 +22,15 @@ class Client:
 
 
         while not exit:
-            time.sleep(0.1) # Prevent server message - Input overlap
+            time.sleep(0.1) # Prevent server message + input overlap
 
             msg = str(input("-: "))
             self.__client.send(msg.encode("utf-8")[:1024])
 
             response = self.__client.recv(1024)
-            response = response.decode("utf-8")
-
-            if response.lower() == EXIT_MSG:
+            response = response.decode("utf-8") # Check for ACK 
+            
+            if response.lower() == EXIT_MSG: # Event of exit message, close server
                 exit = True
 
             print(f"Client Recieved: {response}")

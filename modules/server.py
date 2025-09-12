@@ -11,7 +11,7 @@ class Server:
         self.__port: int = port
 
     def startServer(self):
-        self.__server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.__server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Open TCP Connection
         self.__server.bind((self.__serverIP, self.__port))
         self.__server.listen(0)
         print(f"Listening on {self.__serverIP}:{self.__port}")
@@ -25,7 +25,7 @@ class Server:
             request = request.decode("utf-8")
 
             if request.lower() == EXIT_MSG:
-                clientSocket.send(EXIT_MSG.encode("utf-8"))
+                clientSocket.send(EXIT_MSG.encode("utf-8")) # If given exit message, send back to client to confirm server shutdown.
                 exit = True
             
             print(f"Server Recieved: {request}")
