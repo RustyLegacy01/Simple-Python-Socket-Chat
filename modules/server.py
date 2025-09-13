@@ -1,5 +1,4 @@
 import socket
-import time
 
 PORT = 8000
 EXIT_MSG = "--"
@@ -20,7 +19,7 @@ class Server:
 
         exit = False
 
-        while exit == False:
+        while not exit:
             request = clientSocket.recv(1024)
             request = request.decode("utf-8")
 
