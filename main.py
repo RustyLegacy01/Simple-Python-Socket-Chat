@@ -8,7 +8,7 @@ from modules.client import Client
 PORT = 8000
 EXIT_MSG = "--"
 
-server = Server("127.0.0.1", PORT)
+server = Server("0.0.0.0", PORT)
 client = Client(PORT)
 
 #######################################################
